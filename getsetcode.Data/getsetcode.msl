@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="getsetcodeModelStoreContainer" CdmEntityContainer="GetsetcodeEntities">
+    <EntitySetMapping Name="Agencies">
+      <EntityTypeMapping TypeName="getsetcode.Model.Agency">
+        <MappingFragment StoreEntitySet="Agency">
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PrimaryContactId" ColumnName="PrimaryContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="getsetcode.Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="SummaryHtml" ColumnName="SummaryHtml" />
+          <ScalarProperty Name="LogoId" ColumnName="LogoId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BriefDescription" ColumnName="BriefDescription" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactFormSubmissions">
+      <EntityTypeMapping TypeName="getsetcode.Model.ContactFormSubmission">
+        <MappingFragment StoreEntitySet="ContactFormSubmission">
+          <ScalarProperty Name="EmailSent" ColumnName="EmailSent" />
+          <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="MailingList" ColumnName="MailingList" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="getsetcode.Model.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="ContactDetails" ColumnName="ContactDetails" />
+          <ScalarProperty Name="WorkDetails" ColumnName="WorkDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Frequencies">
+      <EntityTypeMapping TypeName="getsetcode.Model.Frequency">
+        <MappingFragment StoreEntitySet="Frequency">
+          <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History">
+      <EntityTypeMapping TypeName="getsetcode.Model.HistoryItem">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="TestimonialId" ColumnName="TestimonialId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="getsetcode.Model.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ThumbnailId" ColumnName="ThumbnailId" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="getsetcode.Model.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="ThumbnailId" ColumnName="ThumbnailId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="getsetcode.Model.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="SummaryHtml" ColumnName="SummaryHtml" />
+          <ScalarProperty Name="ThumbnailImageId" ColumnName="ThumbnailImageId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="BriefSummary" ColumnName="BriefSummary" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectImages">
+      <EntityTypeMapping TypeName="getsetcode.Model.ProjectImage">
+        <MappingFragment StoreEntitySet="ProjectImage">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectResponsibilities">
+      <EntityTypeMapping TypeName="getsetcode.Model.ProjectResponsibility">
+        <MappingFragment StoreEntitySet="ProjectResponsibility">
+          <ScalarProperty Name="ResponsibilityId" ColumnName="ResponsibilityId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectSkills">
+      <EntityTypeMapping TypeName="getsetcode.Model.ProjectSkill">
+        <MappingFragment StoreEntitySet="ProjectSkill">
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="getsetcode.Model.Rate">
+        <MappingFragment StoreEntitySet="Rate">
+          <ScalarProperty Name="RateId" ColumnName="RateId" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="getsetcode.Model.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="SkillCategoryId" ColumnName="SkillCategoryId" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="DateAcquired" ColumnName="DateAcquired" />
+          <ScalarProperty Name="CurrentVersion" ColumnName="CurrentVersion" />
+          <ScalarProperty Name="IsCoreSkill" ColumnName="IsCoreSkill" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonials">
+      <EntityTypeMapping TypeName="getsetcode.Model.Testimonial">
+        <MappingFragment StoreEntitySet="Testimonial">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Quote" ColumnName="Quote" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="TestimonialId" ColumnName="TestimonialId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AgencyPerson" TypeName="getsetcode.Model.AgencyPerson" StoreEntitySet="AgencyPerson">
+      <EndProperty Name="Agency">
+        <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClientPerson" TypeName="getsetcode.Model.ClientPerson" StoreEntitySet="ClientPerson">
+      <EndProperty Name="Client">
+        <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectContract" TypeName="getsetcode.Model.ProjectContract" StoreEntitySet="ProjectContract">
+      <EndProperty Name="Contract">
+        <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CurriculaVitae">
+      <EntityTypeMapping TypeName="getsetcode.Model.CurriculumVitae">
+        <MappingFragment StoreEntitySet="CurriculumVitae">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="PdfVersion" ColumnName="PdfVersion" />
+          <ScalarProperty Name="WordVersion" ColumnName="WordVersion" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkillCategories">
+      <EntityTypeMapping TypeName="getsetcode.Model.SkillCategory">
+        <MappingFragment StoreEntitySet="SkillCategory">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="SkillCategoryText" ColumnName="SkillCategory" />
+          <ScalarProperty Name="SkillCategoryId" ColumnName="SkillCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

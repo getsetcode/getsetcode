@@ -1,0 +1,12 @@
+﻿@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@model LeftSideLogoData
+        @using (Html.Window(true))
+        {
+            //Note that this must be wrapped in .window for lozenge to display
+            var css = Model.InLozenge ? "lozenge" : null;
+                        <div class="@css">
+                            <img src="@Url.ContentLargeLogo()" alt="GETSETCODE" width="270" height="219" />
+                        </div>
+        }

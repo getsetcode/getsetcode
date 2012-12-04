@@ -1,0 +1,15 @@
+﻿@using getsetcode.Web.Models.Shared
+@model MessageData
+    <div class="alert @Model.CssClass @(Model.Messages == null || Model.Messages.Count == 0 ? "hidden" : "")">
+    @if (Model.Closeable)
+    {
+      <a class="close" data-dismiss="alert">×</a>
+    }
+      <i class="@Model.IconAttribute icon-large"></i>
+      <ul>
+      @foreach (var e in Model.Messages)
+      {
+          <li>@Html.Raw(e)</li>
+      }
+      </ul>
+    </div>

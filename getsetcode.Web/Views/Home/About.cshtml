@@ -1,0 +1,44 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Models.Home
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Services
+@using getsetcode.Presentation
+@model AboutPageData
+@{
+    var ns = NavSection.Home;
+    ViewBag.Title = TitleBuilder.Get(ns, "About");
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+@Html.MainSideBar(Model.SideBarData)
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        using (Html.Wall("About getsetcode.com"))
+        {
+            <div class="post">
+                <p>
+                    This website was built to showcase Tom's development skills. It is an @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 1), tip: TipType.After) @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 2), tip: TipType.After) application with
+                    a @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 7), tip: TipType.After) back end.
+                </p>
+                <p>
+                    The site uses a number of cutting edge technologies including @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 5), tip: TipType.After), @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 6), tip: TipType.After) dependency injection, @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 23), tip: TipType.After)
+                    and @Html.DetailLink(Model.AllSkills.Single(s => s.SkillId == 13), tip: TipType.After).
+                </p>
+                <p>
+                    The source code for getsetcode.com will be available on GitHub soon.
+                </p>
+            </div>
+        }
+    }
+}

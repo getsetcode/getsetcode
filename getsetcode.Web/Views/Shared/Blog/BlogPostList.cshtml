@@ -1,0 +1,19 @@
+﻿@using getsetcode.Web.Models.Blog
+@using getsetcode.Web.Extensions.HelperExtensions
+@model BlogListData
+            <div class="blog-load-items">
+            @for (var i = 0; i < Model.Posts.Count; i++)
+            {
+                using (Html.Wall(Model.Posts[i].Title))
+                {
+                <div class="blog-post post">
+                    <div class="clearfix">
+                    @Html.Raw(Model.Posts[i].Content)
+                    </div>
+                    <p class="float-right">
+                        @Html.ActionLink(Model.Posts[i].Date.ToString("dd/MM/yyyy HH:mm"), "Index", "Blog", new { id = Model.Posts[i].ID }, null)
+                    </p>
+                </div>
+                }
+            }
+            </div>

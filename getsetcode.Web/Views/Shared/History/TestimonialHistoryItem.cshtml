@@ -1,0 +1,12 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.Presentables
+@model IHistoryItemPresentable
+@if (Model.Testimonial != null)
+{
+                            <div class="post">
+                                
+                                <h4>@Model.DisplayDate: Tom added a new testimonial</h4>
+                                @Html.TestimonialPostContent(Model.Testimonial)
+
+                            </div>
+}

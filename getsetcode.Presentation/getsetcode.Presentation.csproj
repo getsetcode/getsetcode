@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D4C9B75-89DB-48DF-B411-3FBA5AD40A38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>getsetcode.Presentation</RootNamespace>
+    <AssemblyName>getsetcode.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Binders\Default.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="Loaders\ClientLoader.cs" />
+    <Compile Include="Loaders\ContactFormSubmissionLoader.cs" />
+    <Compile Include="Loaders\ContractLoader.cs" />
+    <Compile Include="Loaders\HistoryLoader.cs" />
+    <Compile Include="Loaders\IClientLoader.cs" />
+    <Compile Include="Loaders\IContactFormSubmissionLoader.cs" />
+    <Compile Include="Loaders\IContractLoader.cs" />
+    <Compile Include="Loaders\IHistoryLoader.cs" />
+    <Compile Include="Loaders\IProjectLoader.cs" />
+    <Compile Include="Loaders\ISkillLoader.cs" />
+    <Compile Include="Loaders\ITestimonialLoader.cs" />
+    <Compile Include="Loaders\ProjectLoader.cs" />
+    <Compile Include="Loaders\SkillLoader.cs" />
+    <Compile Include="Loaders\TestimonialLoader.cs" />
+    <Compile Include="MvcHelpers\Content.cs" />
+    <Compile Include="MvcHelpers\ControllerHelper.cs" />
+    <Compile Include="MvcHelpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Presentables\ClientPresentable.cs" />
+    <Compile Include="Presentables\ContactFormSubmissionPresentable.cs" />
+    <Compile Include="Presentables\ContractPresentable.cs" />
+    <Compile Include="Presentables\HistoryItemPresentable.cs" />
+    <Compile Include="Presentables\IClientPresentable.cs" />
+    <Compile Include="Presentables\IContactFormSubmissionPresentable.cs" />
+    <Compile Include="Presentables\IContractPresentable.cs" />
+    <Compile Include="Presentables\IHistoryItemPresentable.cs" />
+    <Compile Include="Presentables\IPersonPresentable.cs" />
+    <Compile Include="Presentables\IProjectPresentable.cs" />
+    <Compile Include="Presentables\ISkillPresentable.cs" />
+    <Compile Include="Presentables\ITestimonialPresentable.cs" />
+    <Compile Include="Presentables\PersonPresentable.cs" />
+    <Compile Include="Presentables\ProjectPresentable.cs" />
+    <Compile Include="Presentables\SkillPresentable.cs" />
+    <Compile Include="Presentables\TestimonialPresentable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringHelpers\HtmlPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\getsetcode.Business\getsetcode.Business.csproj">
+      <Project>{42D3ACC7-12C3-488A-BFD9-73BD3B54EEBD}</Project>
+      <Name>getsetcode.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Helpers\getsetcode.Helpers.csproj">
+      <Project>{2E73810A-4753-444B-8962-CEE27FA0C2AB}</Project>
+      <Name>getsetcode.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Model\getsetcode.Model.csproj">
+      <Project>{8D828840-2B2B-474D-A92D-924FB6957F90}</Project>
+      <Name>getsetcode.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

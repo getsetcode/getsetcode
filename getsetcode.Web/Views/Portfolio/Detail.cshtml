@@ -1,0 +1,78 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Portfolio
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Services
+@model ProjectDetailData
+@{
+    var ns = NavSection.Portfolio;
+    ViewBag.Title = TitleBuilder.Get(ns, Model.Project.Name);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+                        <div class="focus-summary">
+                            <h2>@Model.Project.Name</h2>
+                            <p><i class="icon-calendar icon-large"></i> @Model.Project.MonthSpan</p>
+                            <ul class="thumbnails" id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
+                                @foreach (var i in Model.Project.ImagesWithThumbnails)
+                                {
+                                <li><a rel="gallery" href="@Url.DatabaseImage(i.FileName)" title="@i.Title">@Html.DatabaseImage(i.Thumbnail)</a></li>
+                                }
+                            </ul>
+                        </div>
+                        
+                                if (Model.Project.Client != null && Model.Project.Client.Logo != null)
+                                {
+                                    using (Html.Window(true))
+                                    {
+                                        @Html.ImageLink(Model.Project.Client, Model.Project.Client.Logo, "client")
+                                    }
+                                }
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        if (Model.ReturnClient != null)
+        {
+            @Html.InfoMessage(string.Format("Return to {0}", Html.DetailLink(Model.ReturnClient)), true)
+        }
+        
+        using (Html.Wall("Summary"))
+        {
+                            <div class="post">
+                                @Html.Raw(Model.Project.SummaryHtmlWithLinks(Html))
+                            </div>
+        }
+        using (Html.Wall("Responsibilities"))
+        {
+                            <div class="post">
+                                <ul>
+                                @foreach (var r in Model.Project.Responsibilities)
+                                {
+                                    <li>@r</li>
+                                }
+                                </ul>
+                            </div>
+        }
+        using (Html.Wall("Skills"))
+        {
+                            <div class="post">
+                                <ul class="inline">
+                                @foreach (var r in Model.Project.AllSkills)
+                                {
+                                    <li>@Html.DetailLink(r, tip: TipType.After, returnProjectID: Model.Project.ProjectId)</li>
+                                }
+                                </ul>
+                            </div>
+        }
+    }
+}
+@Html.ImageGalleryModal()

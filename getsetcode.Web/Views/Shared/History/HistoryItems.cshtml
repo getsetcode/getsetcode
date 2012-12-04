@@ -1,0 +1,17 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Web.Models.Shared
+@model HistoryListData
+                            <div class="loaded-history">
+                            @if (!Model.InitialLoad)
+                            {
+                                <hr />
+                            }
+                            @for (var h = 0; h < Model.HistoryItems.Count; h++)
+                            {
+                                @Html.HistoryItem(Model.HistoryItems[h])
+                                if (h < Model.HistoryItems.Count - 1)
+                                {
+                                <hr />
+                                }
+                            }
+                            </div>

@@ -1,0 +1,18 @@
+﻿  @using getsetcode.Web.Extensions.HelperExtensions
+  @using getsetcode.Presentation.MvcHelpers
+  @using getsetcode.Web.Models.Shared
+  @model ProjectInListData                      
+                            <div class="post">
+                                <h4 class="project">@Html.DetailLink(Model.Project, returnClientID: (Model.ReturnClient != null ? Model.ReturnClient.ClientId : default(int?)))</h4>
+                                <p class="emphasised">@Model.Project.MonthSpan</p>
+                                @Html.DatabaseImage(Model.Project.ThumbnailImage, "visual")
+                                <div class="push-right">
+                                    @Model.Project.BriefSummary
+                                </div>
+                                <p class="push-right read-more">@Html.DetailLink(Model.Project, linkText: "Read more")</p>
+                            </div>
+                            
+                    @if (Model.LineAfter)
+                    {
+                            <hr />
+                    }

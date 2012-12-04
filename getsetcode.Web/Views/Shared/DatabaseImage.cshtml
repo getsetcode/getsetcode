@@ -1,0 +1,3 @@
+﻿@using getsetcode.Web.Models.Shared
+@model DatabaseImageData
+<img class="@Model.CssClass" src="@Url.Content(Model.FilePath)" alt="@Model.AltText" width="@Model.Width" height="@Model.Height" />

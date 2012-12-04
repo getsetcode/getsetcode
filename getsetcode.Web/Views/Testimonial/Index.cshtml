@@ -1,0 +1,43 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Testimonial
+@using getsetcode.Web.Services
+@model TestimonialListData
+@{
+    var ns = NavSection.Testimonials;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FullWidthPanel())
+    {
+        foreach (var t in Model.Testimonials)
+        {
+            using (Html.Wall(t.DisplayDate))
+            {
+            <div class="post">
+            
+                @Html.TestimonialImage(t.Person, "visual")
+                <p class="push-right">
+                    @Html.Quote(t.Quote)
+                </p>
+                <p class="push-right">
+                    @t.Person.Name
+                    @if (t.Client != null)
+                    {
+                    <text>, @Html.DetailLink(t.Client, tip: TipType.After)</text>
+                    }
+                </p>
+
+            </div>
+            }
+        }
+    }
+}

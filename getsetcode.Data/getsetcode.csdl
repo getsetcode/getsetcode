@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="getsetcode.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="GetsetcodeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agencies" EntityType="getsetcode.Model.Agency" />
+    <EntitySet Name="Clients" EntityType="getsetcode.Model.Client" />
+    <EntitySet Name="ContactFormSubmissions" EntityType="getsetcode.Model.ContactFormSubmission" />
+    <EntitySet Name="Contracts" EntityType="getsetcode.Model.Contract" />
+    <EntitySet Name="Frequencies" EntityType="getsetcode.Model.Frequency" />
+    <EntitySet Name="History" EntityType="getsetcode.Model.HistoryItem" />
+    <EntitySet Name="Images" EntityType="getsetcode.Model.Image" />
+    <EntitySet Name="People" EntityType="getsetcode.Model.Person" />
+    <EntitySet Name="Projects" EntityType="getsetcode.Model.Project" />
+    <EntitySet Name="ProjectImages" EntityType="getsetcode.Model.ProjectImage" />
+    <EntitySet Name="ProjectResponsibilities" EntityType="getsetcode.Model.ProjectResponsibility" />
+    <EntitySet Name="ProjectSkills" EntityType="getsetcode.Model.ProjectSkill" />
+    <EntitySet Name="Rates" EntityType="getsetcode.Model.Rate" />
+    <EntitySet Name="Skills" EntityType="getsetcode.Model.Skill" />
+    <EntitySet Name="Testimonials" EntityType="getsetcode.Model.Testimonial" />
+    <AssociationSet Name="FK_Agency_Person" Association="getsetcode.Model.FK_Agency_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Agency" EntitySet="Agencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_Agency" Association="getsetcode.Model.FK_Contract_Agency">
+      <End Role="Agency" EntitySet="Agencies" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_Organisation" Association="getsetcode.Model.FK_Contract_Organisation">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Client" Association="getsetcode.Model.FK_History_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Client" Association="getsetcode.Model.FK_Project_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rate_Contract" Association="getsetcode.Model.FK_Rate_Contract">
+      <End Role="Contract" EntitySet="Contracts" />
+      <End Role="Rate" EntitySet="Rates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rate_Frequency" Association="getsetcode.Model.FK_Rate_Frequency">
+      <End Role="Frequency" EntitySet="Frequencies" />
+      <End Role="Rate" EntitySet="Rates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Project" Association="getsetcode.Model.FK_History_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Testimonial" Association="getsetcode.Model.FK_History_Testimonial">
+      <End Role="Testimonial" EntitySet="Testimonials" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectImage_Image" Association="getsetcode.Model.FK_ProjectImage_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="ProjectImage" EntitySet="ProjectImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Testimonial_Person" Association="getsetcode.Model.FK_Testimonial_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Testimonial" EntitySet="Testimonials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectImage_Project" Association="getsetcode.Model.FK_ProjectImage_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectImage" EntitySet="ProjectImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectResponsibility_Project" Association="getsetcode.Model.FK_ProjectResponsibility_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectResponsibility" EntitySet="ProjectResponsibilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectSkill_Project" Association="getsetcode.Model.FK_ProjectSkill_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectSkill" EntitySet="ProjectSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectSkill_Skill" Association="getsetcode.Model.FK_ProjectSkill_Skill">
+      <End Role="Skill" EntitySet="Skills" />
+      <End Role="ProjectSkill" EntitySet="ProjectSkills" />
+    </AssociationSet>
+    <AssociationSet Name="AgencyPerson" Association="getsetcode.Model.AgencyPerson">
+      <End Role="Agency" EntitySet="Agencies" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="ClientPerson" Association="getsetcode.Model.ClientPerson">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectContract" Association="getsetcode.Model.ProjectContract">
+      <End Role="Contract" EntitySet="Contracts" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Image" Association="getsetcode.Model.FK_Project_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Image" Association="getsetcode.Model.FK_Client_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_Image" Association="getsetcode.Model.FK_Image_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Image1" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Testimonial_Client" Association="getsetcode.Model.FK_Testimonial_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Testimonial" EntitySet="Testimonials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Image" Association="getsetcode.Model.FK_Person_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <EntitySet Name="CurriculaVitae" EntityType="getsetcode.Model.CurriculumVitae" />
+    <EntitySet Name="SkillCategories" EntityType="getsetcode.Model.SkillCategory" />
+    <AssociationSet Name="FK_Skill_SkillCategory" Association="getsetcode.Model.FK_Skill_SkillCategory">
+      <End Role="SkillCategory" EntitySet="SkillCategories" />
+      <End Role="Skill" EntitySet="Skills" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Agency">
+    <Key>
+      <PropertyRef Name="AgencyId" />
+    </Key>
+    <Property Name="AgencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PrimaryContactId" Type="Int32" />
+    <NavigationProperty Name="PrimaryContactPerson" Relationship="getsetcode.Model.FK_Agency_Person" FromRole="Agency" ToRole="Person" />
+    <NavigationProperty Name="Contract" Relationship="getsetcode.Model.FK_Contract_Agency" FromRole="Agency" ToRole="Contract" />
+    <NavigationProperty Name="People" Relationship="getsetcode.Model.AgencyPerson" FromRole="Agency" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="BriefDescription" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Website" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Featured" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Contracts" Relationship="getsetcode.Model.FK_Contract_Organisation" FromRole="Client" ToRole="Contract" />
+    <NavigationProperty Name="HistoryItems" Relationship="getsetcode.Model.FK_History_Client" FromRole="Client" ToRole="History" />
+    <NavigationProperty Name="Projects" Relationship="getsetcode.Model.FK_Project_Client" FromRole="Client" ToRole="Project" />
+    <NavigationProperty Name="People" Relationship="getsetcode.Model.ClientPerson" FromRole="Client" ToRole="Person" />
+    <Property Type="Int32" Name="LogoId" />
+    <NavigationProperty Name="Logo" Relationship="getsetcode.Model.FK_Client_Image" FromRole="Client" ToRole="Image" />
+    <Property Type="String" Name="SummaryHtml" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Testimonials" Relationship="getsetcode.Model.FK_Testimonial_Client" FromRole="Client" ToRole="Testimonial" />
+  </EntityType>
+  <EntityType Name="ContactFormSubmission">
+    <Key>
+      <PropertyRef Name="SubmissionId" />
+    </Key>
+    <Property Name="SubmissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="MailingList" Type="Boolean" Nullable="false" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" />
+    <Property Type="Boolean" Name="EmailSent" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="ContractId" />
+    </Key>
+    <Property Name="ContractId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="ContactDetails" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="WorkDetails" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Agency" Relationship="getsetcode.Model.FK_Contract_Agency" FromRole="Contract" ToRole="Agency" />
+    <NavigationProperty Name="Client" Relationship="getsetcode.Model.FK_Contract_Organisation" FromRole="Contract" ToRole="Client" />
+    <NavigationProperty Name="Rates" Relationship="getsetcode.Model.FK_Rate_Contract" FromRole="Contract" ToRole="Rate" />
+    <NavigationProperty Name="Projects" Relationship="getsetcode.Model.ProjectContract" FromRole="Contract" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Frequency">
+    <Key>
+      <PropertyRef Name="FrequencyId" />
+    </Key>
+    <Property Name="FrequencyId" Type="Byte" Nullable="false" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Rates" Relationship="getsetcode.Model.FK_Rate_Frequency" FromRole="Frequency" ToRole="Rate" />
+  </EntityType>
+  <EntityType Name="HistoryItem">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="TestimonialId" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="getsetcode.Model.FK_History_Client" FromRole="History" ToRole="Client" />
+    <NavigationProperty Name="Project" Relationship="getsetcode.Model.FK_History_Project" FromRole="History" ToRole="Project" />
+    <NavigationProperty Name="Testimonial" Relationship="getsetcode.Model.FK_History_Testimonial" FromRole="History" ToRole="Testimonial" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ImageProjects" Relationship="getsetcode.Model.FK_ProjectImage_Image" FromRole="Image" ToRole="ProjectImage" />
+    <NavigationProperty Name="Projects" Relationship="getsetcode.Model.FK_Project_Image" FromRole="Image" ToRole="Project" />
+    <NavigationProperty Name="Clients" Relationship="getsetcode.Model.FK_Client_Image" FromRole="Image" ToRole="Client" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Width" Nullable="false" />
+    <Property Type="Int32" Name="Height" Nullable="false" />
+    <Property Type="Int32" Name="ThumbnailId" />
+    <NavigationProperty Name="FullSizeVersions" Relationship="getsetcode.Model.FK_Image_Image" FromRole="Image" ToRole="Image1" />
+    <NavigationProperty Name="Thumbnail" Relationship="getsetcode.Model.FK_Image_Image" FromRole="Image1" ToRole="Image" />
+    <NavigationProperty Name="People" Relationship="getsetcode.Model.FK_Person_Image" FromRole="Image" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="OfficePhone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="MobilePhone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Testimonials" Relationship="getsetcode.Model.FK_Testimonial_Person" FromRole="Person" ToRole="Testimonial" />
+    <NavigationProperty Name="Agencies" Relationship="getsetcode.Model.AgencyPerson" FromRole="Person" ToRole="Agency" />
+    <NavigationProperty Name="Clients" Relationship="getsetcode.Model.ClientPerson" FromRole="Person" ToRole="Client" />
+    <Property Type="Int32" Name="ThumbnailId" />
+    <NavigationProperty Name="Thumbnail" Relationship="getsetcode.Model.FK_Person_Image" FromRole="Person" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="BriefSummary" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Featured" Type="Boolean" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="getsetcode.Model.FK_Project_Client" FromRole="Project" ToRole="Client" />
+    <NavigationProperty Name="History" Relationship="getsetcode.Model.FK_History_Project" FromRole="Project" ToRole="History" />
+    <NavigationProperty Name="ProjectImages" Relationship="getsetcode.Model.FK_ProjectImage_Project" FromRole="Project" ToRole="ProjectImage" />
+    <NavigationProperty Name="ProjectResponsibilities" Relationship="getsetcode.Model.FK_ProjectResponsibility_Project" FromRole="Project" ToRole="ProjectResponsibility" />
+    <NavigationProperty Name="ProjectSkills" Relationship="getsetcode.Model.FK_ProjectSkill_Project" FromRole="Project" ToRole="ProjectSkill" />
+    <NavigationProperty Name="Contracts" Relationship="getsetcode.Model.ProjectContract" FromRole="Project" ToRole="Contract" />
+    <Property Type="Int32" Name="ThumbnailImageId" />
+    <NavigationProperty Name="ThumbnailImage" Relationship="getsetcode.Model.FK_Project_Image" FromRole="Project" ToRole="Image" />
+    <Property Type="String" Name="SummaryHtml" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="StartDate" />
+    <Property Type="DateTime" Name="EndDate" />
+  </EntityType>
+  <EntityType Name="ProjectImage">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="ImageId" Type="Int32" Nullable="false" />
+    <Property Name="Rank" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="getsetcode.Model.FK_ProjectImage_Image" FromRole="ProjectImage" ToRole="Image" />
+    <NavigationProperty Name="Project" Relationship="getsetcode.Model.FK_ProjectImage_Project" FromRole="ProjectImage" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="ProjectResponsibility">
+    <Key>
+      <PropertyRef Name="ResponsibilityId" />
+    </Key>
+    <Property Name="ResponsibilityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Rank" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="getsetcode.Model.FK_ProjectResponsibility_Project" FromRole="ProjectResponsibility" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="ProjectSkill">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="SkillId" Type="Int32" Nullable="false" />
+    <Property Name="Rank" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="getsetcode.Model.FK_ProjectSkill_Project" FromRole="ProjectSkill" ToRole="Project" />
+    <NavigationProperty Name="Skill" Relationship="getsetcode.Model.FK_ProjectSkill_Skill" FromRole="ProjectSkill" ToRole="Skill" />
+    <Property Type="Boolean" Name="Featured" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rate">
+    <Key>
+      <PropertyRef Name="RateId" />
+    </Key>
+    <Property Name="RateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FrequencyId" Type="Byte" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Contract" Relationship="getsetcode.Model.FK_Rate_Contract" FromRole="Rate" ToRole="Contract" />
+    <NavigationProperty Name="Frequency" Relationship="getsetcode.Model.FK_Rate_Frequency" FromRole="Rate" ToRole="Frequency" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Summary" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="DateAcquired" Type="DateTime" Nullable="false" />
+    <Property Name="CurrentVersion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IsCoreSkill" Type="Boolean" Nullable="false" />
+    <Property Name="Rank" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="ProjectSkills" Relationship="getsetcode.Model.FK_ProjectSkill_Skill" FromRole="Skill" ToRole="ProjectSkill" />
+    <Property Type="Byte" Name="SkillCategoryId" Nullable="false" />
+    <NavigationProperty Name="SkillCategory" Relationship="getsetcode.Model.FK_Skill_SkillCategory" FromRole="Skill" ToRole="SkillCategory" />
+  </EntityType>
+  <EntityType Name="Testimonial">
+    <Key>
+      <PropertyRef Name="TestimonialId" />
+    </Key>
+    <Property Name="TestimonialId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="HistoryItems" Relationship="getsetcode.Model.FK_History_Testimonial" FromRole="Testimonial" ToRole="History" />
+    <NavigationProperty Name="Person" Relationship="getsetcode.Model.FK_Testimonial_Person" FromRole="Testimonial" ToRole="Person" />
+    <Property Type="Int32" Name="ClientId" Nullable="true" />
+    <Property Type="String" Name="Quote" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="getsetcode.Model.FK_Testimonial_Client" FromRole="Testimonial" ToRole="Client" />
+    <Property Type="String" Name="Role" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Agency_Person">
+    <End Role="Person" Type="getsetcode.Model.Person" Multiplicity="0..1" />
+    <End Role="Agency" Type="getsetcode.Model.Agency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Agency">
+        <PropertyRef Name="PrimaryContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_Agency">
+    <End Role="Agency" Type="getsetcode.Model.Agency" Multiplicity="0..1" />
+    <End Role="Contract" Type="getsetcode.Model.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agency">
+        <PropertyRef Name="AgencyId" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="AgencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_Organisation">
+    <End Role="Client" Type="getsetcode.Model.Client" Multiplicity="1" />
+    <End Role="Contract" Type="getsetcode.Model.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Client">
+    <End Role="Client" Type="getsetcode.Model.Client" Multiplicity="0..1" />
+    <End Role="History" Type="getsetcode.Model.HistoryItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Client">
+    <End Role="Client" Type="getsetcode.Model.Client" Multiplicity="1" />
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rate_Contract">
+    <End Role="Contract" Type="getsetcode.Model.Contract" Multiplicity="1" />
+    <End Role="Rate" Type="getsetcode.Model.Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="ContractId" />
+      </Principal>
+      <Dependent Role="Rate">
+        <PropertyRef Name="ContractId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rate_Frequency">
+    <End Role="Frequency" Type="getsetcode.Model.Frequency" Multiplicity="1" />
+    <End Role="Rate" Type="getsetcode.Model.Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frequency">
+        <PropertyRef Name="FrequencyId" />
+      </Principal>
+      <Dependent Role="Rate">
+        <PropertyRef Name="FrequencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Project">
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="0..1" />
+    <End Role="History" Type="getsetcode.Model.HistoryItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Testimonial">
+    <End Role="Testimonial" Type="getsetcode.Model.Testimonial" Multiplicity="0..1" />
+    <End Role="History" Type="getsetcode.Model.HistoryItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Testimonial">
+        <PropertyRef Name="TestimonialId" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="TestimonialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectImage_Image">
+    <End Role="Image" Type="getsetcode.Model.Image" Multiplicity="1" />
+    <End Role="ProjectImage" Type="getsetcode.Model.ProjectImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="ProjectImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Testimonial_Person">
+    <End Role="Person" Type="getsetcode.Model.Person" Multiplicity="1" />
+    <End Role="Testimonial" Type="getsetcode.Model.Testimonial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Testimonial">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectImage_Project">
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="1" />
+    <End Role="ProjectImage" Type="getsetcode.Model.ProjectImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectImage">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectResponsibility_Project">
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="1" />
+    <End Role="ProjectResponsibility" Type="getsetcode.Model.ProjectResponsibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectResponsibility">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectSkill_Project">
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="1" />
+    <End Role="ProjectSkill" Type="getsetcode.Model.ProjectSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectSkill">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectSkill_Skill">
+    <End Role="Skill" Type="getsetcode.Model.Skill" Multiplicity="1" />
+    <End Role="ProjectSkill" Type="getsetcode.Model.ProjectSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="SkillId" />
+      </Principal>
+      <Dependent Role="ProjectSkill">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgencyPerson">
+    <End Role="Agency" Type="getsetcode.Model.Agency" Multiplicity="*" />
+    <End Role="Person" Type="getsetcode.Model.Person" Multiplicity="*" />
+  </Association>
+  <Association Name="ClientPerson">
+    <End Role="Client" Type="getsetcode.Model.Client" Multiplicity="*" />
+    <End Role="Person" Type="getsetcode.Model.Person" Multiplicity="*" />
+  </Association>
+  <Association Name="ProjectContract">
+    <End Role="Contract" Type="getsetcode.Model.Contract" Multiplicity="*" />
+    <End Role="Project" Type="getsetcode.Model.Project" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Project_Image">
+    <End Type="getsetcode.Model.Image" Role="Image" Multiplicity="0..1" />
+    <End Type="getsetcode.Model.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ThumbnailImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Image">
+    <End Type="getsetcode.Model.Image" Role="Image" Multiplicity="0..1" />
+    <End Type="getsetcode.Model.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="LogoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_Image">
+    <End Type="getsetcode.Model.Image" Role="Image" Multiplicity="0..1" />
+    <End Type="getsetcode.Model.Image" Role="Image1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Image1">
+        <PropertyRef Name="ThumbnailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Testimonial_Client">
+    <End Type="getsetcode.Model.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="getsetcode.Model.Testimonial" Role="Testimonial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="Testimonial">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Image">
+    <End Type="getsetcode.Model.Image" Role="Image" Multiplicity="0..1" />
+    <End Type="getsetcode.Model.Person" Role="Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="ThumbnailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CurriculumVitae">
+    <Key>
+      <PropertyRef Name="Version" />
+    </Key>
+    <Property Type="Double" Name="Version" Nullable="false" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="WordVersion" Nullable="false" />
+    <Property Type="Boolean" Name="PdfVersion" Nullable="false" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkillCategory">
+    <Key>
+      <PropertyRef Name="SkillCategoryId" />
+    </Key>
+    <Property Type="Byte" Name="SkillCategoryId" Nullable="false" />
+    <Property Type="String" Name="SkillCategoryText" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Rank" Nullable="false" />
+    <NavigationProperty Name="Skills" Relationship="getsetcode.Model.FK_Skill_SkillCategory" FromRole="SkillCategory" ToRole="Skill" />
+  </EntityType>
+  <Association Name="FK_Skill_SkillCategory">
+    <End Type="getsetcode.Model.SkillCategory" Role="SkillCategory" Multiplicity="1" />
+    <End Type="getsetcode.Model.Skill" Role="Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkillCategory">
+        <PropertyRef Name="SkillCategoryId" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="SkillCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

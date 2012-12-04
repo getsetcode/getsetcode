@@ -1,0 +1,133 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Skills
+@using getsetcode.Web.Services
+@model SkillsListData
+@{
+    var ns = NavSection.Skills;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+                        <div class="focus-summary">
+                            <h2>Skills</h2>
+                            <p>
+                                Opposite you will find a list of Tom's core skills. Click through to learn more about a skill and view related projects.
+                            </p>
+                        </div>
+        using (Html.Window(true))
+        {
+                            @Html.LeftSideLogo(false)
+        }
+    }
+    using (Html.EightColumnPanel())
+    {
+        using (Html.Wall("About Tom"))
+        {
+            <div class="post">
+                <p>
+                    @Html.AboutTom(false)
+                </p>
+            </div>
+        }
+        using (Html.Wall("Tom's Skills"))
+        {
+            <div class="post">
+            @foreach (var c in Model.DistinctCategories)
+            {
+                <h4 class="inside">@c.SkillCategoryText</h4>
+                <ul class="inline">
+                @foreach (var s in Model.CategorySkills(c))
+                {
+                    <li class="no-wrap"><i class="icon-ok brand-light"></i> @Html.DetailLink(s, tip: TipType.After) (@s.Experience)</li>
+                }
+                </ul>
+            }
+            </div>
+        }
+    }
+}
+
+@*@using (Html.Row())
+{
+    using (Html.FullWidthPanel())
+    {
+        using (Html.Wall("Core Skills"))
+        {                
+            <div class="table-wrapper">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Technology</th>
+                            <!--<th>Current Version</th>-->
+                            <th>Experience</th>
+                            <th>Description</th>
+                            <th>Projects</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    @foreach (var s in Model.Skills.Where(s => s.IsCoreSkill))
+    {
+                        <tr>
+                            <td class="strong">@s.Name</td>
+                            <!--<td>@s.CurrentVersion</td>-->
+                            <td>@s.Experience</td>
+                            <td>@s.Summary</td>
+                            <td>
+                            @if (s.FeaturedProjects.Count == 0)
+                            {
+                                @:&nbsp;
+                            }
+                            else
+                            {
+                                <ul>
+                                @foreach (var p in s.FeaturedProjects)
+                                {
+                                    <li>@Html.DetailLink(p, tip: TipType.Before)</li>
+                                }
+                                </ul>
+                            }
+                            </td>
+                        </tr>
+    }
+                    </tbody>
+                </table>
+
+            </div>
+
+        }
+    }
+}
+
+@if (Model.Skills.Any(s => !s.IsCoreSkill))
+{
+    using (Html.Row())
+    {
+        using (Html.FullWidthPanel())
+        {
+            using (Html.Wall("Other Skills"))
+            {       
+            <div class="post">
+            
+                <ul class="inline">           
+    @foreach (var s in Model.Skills.Where(s => !s.IsCoreSkill))
+    {
+                    <li>@Html.DetailLink(s, tip: TipType.After)</li>
+    }
+                </ul>
+            
+            </div>
+            }
+        }
+    }
+}*@

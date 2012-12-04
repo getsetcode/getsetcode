@@ -1,0 +1,10 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.Presentables
+@model IEnumerable<IHistoryItemPresentable>
+
+<ul>
+@foreach (var h in Model)
+{
+    <li>@h.HistoryId</li>
+}
+</ul>

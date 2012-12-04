@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{222C96C5-5D29-45F5-9184-6DFE450C8EE5}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>getsetcode.Web</RootNamespace>
+    <AssemblyName>getsetcode.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>..\..\Libraries\Blogger API\Lib\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Blogger.v3">
+      <HintPath>..\..\Libraries\Blogger API\Services\BloggerService\Google.Apis.Blogger.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Blogger">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Blogger.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Client, Version=1.9.0.0, Culture=neutral, PublicKeyToken=04a59ca9b0273830, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net40-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\DownloadResult.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Binders\Default.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CvController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PortfolioController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
+    <Compile Include="Controllers\TestimonialController.cs" />
+    <Compile Include="Extensions\ControllerExtensions\ControllerHelper.cs" />
+    <Compile Include="Extensions\HelperExtensions\Forms.cs" />
+    <Compile Include="Extensions\HelperExtensions\Messages.cs" />
+    <Compile Include="Extensions\HelperExtensions\Navigation.cs" />
+    <Compile Include="Extensions\HelperExtensions\SharedPartials.cs" />
+    <Compile Include="Extensions\HelperExtensions\Links.cs" />
+    <Compile Include="Extensions\HelperExtensions\Wrappers.cs" />
+    <Compile Include="Extensions\ObjectExtensions\Dictionary.cs" />
+    <Compile Include="Extensions\RouteCollectionExtensions\MapRoute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blog\BlogListData.cs" />
+    <Compile Include="Models\Blog\BlogPost.cs" />
+    <Compile Include="Models\Client\ClientDetailData.cs" />
+    <Compile Include="Models\Contact\RecentContactsData.cs" />
+    <Compile Include="Models\Home\AboutPageData.cs" />
+    <Compile Include="Models\Home\HomePageData.cs" />
+    <Compile Include="Models\Portfolio\ProjectDetailData.cs" />
+    <Compile Include="Models\Portfolio\ProjectListData.cs" />
+    <Compile Include="Models\Shared\AboutTomData.cs" />
+    <Compile Include="Models\Shared\ContactFormData.cs" />
+    <Compile Include="Models\Shared\DatabaseImageData.cs" />
+    <Compile Include="Models\Shared\ExperienceData.cs" />
+    <Compile Include="Models\Shared\HistoryListData.cs" />
+    <Compile Include="Models\Shared\LeftSideLogoData.cs" />
+    <Compile Include="Models\Shared\MainSideBarData.cs" />
+    <Compile Include="Models\Shared\MessageData.cs" />
+    <Compile Include="Models\Shared\ProjectInListData.cs" />
+    <Compile Include="Models\Skills\SkillDetailData.cs" />
+    <Compile Include="Models\Skills\SkillsListData.cs" />
+    <Compile Include="Models\Temp.cs" />
+    <Compile Include="Models\Testimonial\TestimonialListData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ContactFormFactory.cs" />
+    <Compile Include="Services\CookieHandler.cs" />
+    <Compile Include="Services\IContactFormFactory.cs" />
+    <Compile Include="Services\ICookieHandler.cs" />
+    <Compile Include="Services\TitleBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Content\css\bootstrap-image-gallery.css" />
+    <Content Include="Content\css\bootstrap-image-gallery.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\getsetcode.css" />
+    <Content Include="Content\css\getsetcode.min.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\responsive.min.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\font\Ubuntu-L-webfont.svg" />
+    <Content Include="Content\images\button-linkedin.png" />
+    <Content Include="Content\images\button-loading.gif" />
+    <Content Include="Content\images\button-stackexchange.png" />
+    <Content Include="Content\images\button-twitter.png" />
+    <Content Include="Content\images\db\adrian-forster-logo-thumb.jpg" />
+    <Content Include="Content\images\db\adrian-forster-logo.jpg" />
+    <Content Include="Content\images\db\chyms-1-thumb.jpg" />
+    <Content Include="Content\images\db\chyms-1.jpg" />
+    <Content Include="Content\images\db\chyms-2-thumb.jpg" />
+    <Content Include="Content\images\db\chyms-2.jpg" />
+    <Content Include="Content\images\db\chyms-3-thumb.jpg" />
+    <Content Include="Content\images\db\chyms-3.jpg" />
+    <Content Include="Content\images\db\chyms-thumb-large.jpg" />
+    <Content Include="Content\images\db\ftl-1-thumb.jpg" />
+    <Content Include="Content\images\db\ftl-1.jpg" />
+    <Content Include="Content\images\db\ftl-2-thumb.jpg" />
+    <Content Include="Content\images\db\ftl-2.jpg" />
+    <Content Include="Content\images\db\ftl-3-thumb.jpg" />
+    <Content Include="Content\images\db\ftl-3.jpg" />
+    <Content Include="Content\images\db\ftl-project-thumb.jpg" />
+    <Content Include="Content\images\db\ifinance-1-thumb.jpg" />
+    <Content Include="Content\images\db\ifinance-1.jpg" />
+    <Content Include="Content\images\db\ifinance-2-thumb.jpg" />
+    <Content Include="Content\images\db\ifinance-2.jpg" />
+    <Content Include="Content\images\db\ifinance-3-thumb.jpg" />
+    <Content Include="Content\images\db\ifinance-3.jpg" />
+    <Content Include="Content\images\db\ifinance-thumb-large.jpg" />
+    <Content Include="Content\images\db\person-adrian-forster.png" />
+    <Content Include="Content\images\db\person-tom-troughton.png" />
+    <Content Include="Content\images\db\tcs-logo-thumb.gif" />
+    <Content Include="Content\images\db\tcs-logo.gif" />
+    <Content Include="Content\images\double-quote-close.gif" />
+    <Content Include="Content\images\double-quote-open.gif" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\gsc-logo-stripes.png" />
+    <Content Include="Content\images\gsc-logo-transparent.png" />
+    <Content Include="Content\images\icon-pdf.png" />
+    <Content Include="Content\images\icon-word.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\profile-header.png" />
+    <Content Include="Content\images\profile.jpg" />
+    <Content Include="favicon.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap-image-gallery.js" />
+    <Content Include="Scripts\bootstrap-image-gallery.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\getsetcode.form.js" />
+    <Content Include="Scripts\getsetcode.loader.js" />
+    <Content Include="Scripts\getsetcode.modal.js" />
+    <Content Include="Scripts\load-image.js" />
+    <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\less.min.js" />
+    <Content Include="Scripts\getsetcode.global.js" />
+    <Content Include="Scripts\load-image.min.js" />
+    <Content Include="Views\Shared\AboutTom.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\ContactForm.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\CvDownload.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\DatabaseImage.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Shared\History\ClientHistoryItem.cshtml" />
+    <Content Include="Views\Shared\History\HistoryItems.cshtml" />
+    <Content Include="Views\Shared\History\ProjectHistoryItem.cshtml" />
+    <Content Include="Views\Shared\History\TestimonialHistoryItem.cshtml" />
+    <Content Include="Views\Shared\ImageGalleryModal.cshtml" />
+    <Content Include="Views\Shared\LeftSideLogo.cshtml" />
+    <Content Include="Views\Shared\MainSideBar.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\Message.cshtml" />
+    <Content Include="Views\Shared\Messages\InfoMessage.cshtml" />
+    <Content Include="Views\Shared\Messages\SuccessMessage.cshtml" />
+    <Content Include="Views\Shared\Messages\WarningMessage.cshtml" />
+    <Content Include="Views\Shared\Modal.cshtml" />
+    <Content Include="Views\Shared\ProjectInList.cshtml" />
+    <Content Include="Views\Shared\Quote.cshtml" />
+    <Content Include="Views\Shared\SiteFooter.cshtml" />
+    <Content Include="Views\Shared\SiteHeader.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\TestimonialPostContent.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\cv\cv-tom-troughton-20120913.pdf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\Ubuntu-L-webfont.eot" />
+    <Content Include="Content\font\Ubuntu-L-webfont.ttf" />
+    <Content Include="Content\font\Ubuntu-L-webfont.woff" />
+    <None Include="Content\less\accordion.less" />
+    <None Include="Content\less\alerts.less" />
+    <None Include="Content\less\bootstrap.less" />
+    <None Include="Content\less\breadcrumbs.less" />
+    <None Include="Content\less\button-groups.less" />
+    <None Include="Content\less\buttons.less" />
+    <None Include="Content\less\carousel.less" />
+    <None Include="Content\less\close.less" />
+    <None Include="Content\less\code.less" />
+    <None Include="Content\less\component-animations.less" />
+    <None Include="Content\less\dropdowns.less" />
+    <None Include="Content\less\font-awesome-ie7.less" />
+    <None Include="Content\less\font-awesome.less" />
+    <None Include="Content\less\forms.less" />
+    <None Include="Content\less\getsetcode.less" />
+    <None Include="Content\less\getsetcode.mixins.less" />
+    <None Include="Content\less\grid.less" />
+    <None Include="Content\less\hero-unit.less" />
+    <None Include="Content\less\labels-badges.less" />
+    <None Include="Content\less\layouts.less" />
+    <None Include="Content\less\mixins.less" />
+    <None Include="Content\less\modals.less" />
+    <None Include="Content\less\navbar.less" />
+    <None Include="Content\less\navs.less" />
+    <None Include="Content\less\pager.less" />
+    <None Include="Content\less\pagination.less" />
+    <None Include="Content\less\popovers.less" />
+    <None Include="Content\less\progress-bars.less" />
+    <None Include="Content\less\reset.less" />
+    <None Include="Content\less\responsive-1200px-min.less" />
+    <None Include="Content\less\responsive-767px-max.less" />
+    <None Include="Content\less\responsive-768px-979px.less" />
+    <None Include="Content\less\responsive-navbar.less" />
+    <None Include="Content\less\responsive-utilities.less" />
+    <None Include="Content\less\responsive.less" />
+    <None Include="Content\less\scaffolding.less" />
+    <None Include="Content\less\sprites.less" />
+    <None Include="Content\less\tables.less" />
+    <None Include="Content\less\thumbnails.less" />
+    <None Include="Content\less\tooltip.less" />
+    <None Include="Content\less\type.less" />
+    <None Include="Content\less\utilities.less" />
+    <None Include="Content\less\variables.less" />
+    <None Include="Content\less\wells.less" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Skill\Index.cshtml" />
+    <Content Include="Views\Portfolio\Index.cshtml" />
+    <Content Include="Views\Portfolio\ClientDetail.cshtml" />
+    <Content Include="Views\Portfolio\Detail.cshtml" />
+    <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\History\Take.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Recent.cshtml" />
+    <Content Include="Views\Skill\Detail.cshtml" />
+    <Content Include="Views\EditorTemplates\LargeTextarea.cshtml" />
+    <Content Include="Views\CV\Index.cshtml" />
+    <Content Include="Views\Shared\BrandName.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Shared\Blog\BlogPostList.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Web.Live.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\getsetcode.Business\getsetcode.Business.csproj">
+      <Project>{42D3ACC7-12C3-488A-BFD9-73BD3B54EEBD}</Project>
+      <Name>getsetcode.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Helpers\getsetcode.Helpers.csproj">
+      <Project>{2E73810A-4753-444B-8962-CEE27FA0C2AB}</Project>
+      <Name>getsetcode.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Model\getsetcode.Model.csproj">
+      <Project>{8D828840-2B2B-474D-A92D-924FB6957F90}</Project>
+      <Name>getsetcode.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Presentation\getsetcode.Presentation.csproj">
+      <Project>{2D4C9B75-89DB-48DF-B411-3FBA5AD40A38}</Project>
+      <Name>getsetcode.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64715</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" "$(ProjectDir)Content\less\bootstrap.less" "$(ProjectDir)Content\css\bootstrap.css"
+"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" "$(ProjectDir)Content\less\responsive.less" "$(ProjectDir)Content\css\responsive.css"
+"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" -m "$(ProjectDir)Content\less\bootstrap.less" "$(ProjectDir)Content\css\bootstrap.min.css"
+"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" -m "$(ProjectDir)Content\less\responsive.less" "$(ProjectDir)Content\css\responsive.min.css"
+"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" "$(ProjectDir)Content\less\getsetcode.less" "$(ProjectDir)Content\css\getsetcode.css"
+"$(ProjectDir)..\packages\dotless.1.3.1.0\tool\dotless.Compiler.exe" -m "$(ProjectDir)Content\less\getsetcode.less" "$(ProjectDir)Content\css\getsetcode.min.css"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

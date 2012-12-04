@@ -1,0 +1,14 @@
+﻿@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Extensions.HelperExtensions
+@model AboutTomData
+                    @if (Model.IncludeIntro)
+                    {
+                        @Html.BrandName() @:is Tom Troughton,
+                    }
+                    else
+                    {
+                        @:Tom is
+                    }
+                    a freelance <abbr title="ASP.NET framework with C# programming language">C#.NET</abbr> web developer with @Model.YearsExperience years
+                    experience working on corporate-scale multi-tier ASP.NET projects. Primarily a C# programmer, Tom is also an accomplished SQL Server developer
+                    and UI designer.

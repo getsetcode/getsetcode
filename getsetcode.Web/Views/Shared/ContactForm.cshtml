@@ -1,0 +1,59 @@
+﻿ @using getsetcode.Web.Models.Shared
+ @using getsetcode.Web.Extensions.HelperExtensions
+ @model ContactFormData
+                <div id="contact-form" class="@(Model.Modal ? "modal hide fade" : "")">
+                    @{
+                        var title = "Contact Tom";   
+                    }
+                    @if (Model.Modal)
+                    {
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3>@title</h3>
+                    </div>
+                    }
+                    else
+                    {
+                        <h3>@title</h3>
+                    }
+                    @using (Html.BeginForm("Send", "Contact", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.HiddenFor(m => m.Modal)
+                        <div class="modal-body">
+                            <fieldset>
+                                @Html.ErrorMessage(Model.Errors ?? new List<string>())
+                                @using (Html.HorizontalFormRow(m => m.Submission.Name, Forms.ValidationType.None, true))
+                                {
+                                    @Html.TextBoxFor(m => m.Submission.Name, new { id = "contact-form-name", @class = "input-xlarge" })
+                                }
+                                @using (Html.HorizontalFormRow(m => m.Submission.EmailAddress, Forms.ValidationType.Email, true))
+                                {
+                                    @Html.TextBoxFor(m => m.Submission.EmailAddress, new { id = "contact-form-email", @class = "input-xlarge" })
+                                }
+                                @using (Html.HorizontalFormRow(m => m.Submission.Message, Forms.ValidationType.None, true))
+                                {
+                                    @Html.EditorFor(m => m.Submission.Message, new { id = "contact-form-message", @class = "input-xlarge", @rows = 5, title="Your message" })
+                                }
+                                <div class="control-group">
+                                    <label class="control-label" for="mailing-list">Join mailing list*</label>
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            @Html.CheckBoxFor(m => m.Submission.MailingList)
+                                        </label>
+                                    </div>	
+                                </div>
+                                <div class="about">
+                                    * Receive an email 2 weeks before Tom's current contract ends. Your
+                                    email address will not be used for any other purpose without your consent.
+                                </div>
+                            </fieldset> 
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="send-message" value="Send" class="btn btn-primary" /> 
+                        @if (Model.Modal)
+                        {
+                            <a href="#" class="btn" data-dismiss="modal">Close</a>
+                        }
+                        </div>
+                    }   
+                </div>

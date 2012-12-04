@@ -1,0 +1,29 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model
+@model CurriculumVitae
+@if (Model == null)
+{
+    <p>
+        Tom's CV is not currently available. Please check back soon.
+    </p>
+}
+else
+{
+    <ul class="cv-list">
+    @if (Model.PdfVersion)
+    {
+        <li>
+            <img src="@Url.IconForPdf()" alt="Adobe PDF icon" width="16" height="16" />
+            <a href="@Url.Action("Pdf", "Cv")" title="Download CV in PDF format">Download CV in PDF format</a>
+        </li>
+    }
+    @if (Model.WordVersion)
+    {
+        <li>
+            <img src="@Url.IconForWord()" alt="Microsoft Word icon" width="16" height="16" />
+            <a href="@Url.Action("Word", "Cv")" title="Download CV in Word format">Download CV in Word format</a>
+        </li>
+    }
+    </ul>
+}

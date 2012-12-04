@@ -1,0 +1,45 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Models.Home
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Services
+@model HomePageData
+@{
+    var ns = NavSection.Home;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+@Html.MainSideBar(Model.SideBarData)
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        if (Model.MessageText != null)
+        {
+                            @Html.SuccessMessage(Model.MessageText, true)
+        }
+        if (Model.ShowContractStatus)
+        {
+                            @Html.InfoMessage(Model.ContractMessage, false)
+        }
+
+        using (Html.Wall("Latest News"))
+        {
+                            <div class="history-loader">
+                                <noscript><div class="post">Sorry, you need to enable Javascript to display my history :(</div></noscript>
+                                <div class="loading"><img src="@Url.ContentLoadingGif()" alt="Loading history" /></div>
+                            </div>
+        }
+    }
+}
+
+@Html.ContactForm(new ContactFormData() { Submission = Model.ContactFormSubmission, Modal = true })

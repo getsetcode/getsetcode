@@ -1,0 +1,30 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Services
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Presentation.MvcHelpers
+@model MainSideBarData
+@{
+    var ns = NavSection.Blog;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+@Html.MainSideBar(Model) 
+    }
+
+    using (Html.EightColumnPanel())
+    {        
+                            <div class="blog-loader">
+                                <noscript><div class="post">Sorry, you need to enable Javascript to display my blog :(</div></noscript>
+                                <div class="loading wall"><img src="@Url.ContentLoadingGif()" alt="Loading blog" /></div>
+                            </div>
+    }
+}

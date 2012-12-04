@@ -1,0 +1,30 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Services
+@model ContactFormData
+@{
+    var ns = NavSection.Contact;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+@Html.MainSideBar(Model.MainSideBarData) 
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        using (Html.Wall())
+        {
+@Html.ContactForm(Model)
+        }
+    }
+}
+

@@ -1,0 +1,82 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Client
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Services
+@model ClientDetailData
+@{
+    var ns = NavSection.Portfolio;
+    ViewBag.Title = TitleBuilder.Get(ns, Model.Client.Name);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+                        <div class="focus-summary">
+                            <h2>@Model.Client.Name</h2>
+                            <p>
+                                @Model.Client.BriefDescription
+                            </p>
+                            @if (Model.Client.WebsiteDisplay != null)
+                            {
+                            <p>
+                                <a href="@Model.Client.Website" title="@Model.Client.Name" target="_blank">@Model.Client.WebsiteDisplay</a> <i class="icon-external-link"></i>
+                            </p>
+                            }
+                        </div>
+                        
+                            if (Model.Client.Logo != null)
+                            {
+                        <div class="window centered">
+                            @Html.DatabaseImage(Model.Client.Logo, "client")
+                        </div>
+                            }
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        if (!string.IsNullOrEmpty(Model.Client.SummaryHtml))
+        {
+            using (Html.Wall(string.Format("About {0}", Model.Client.Name)))
+            {
+                            <div class="post">
+                            
+                                @Html.Raw(Model.Client.SummaryHtmlWithLinks(Html))
+
+                            </div>
+            }
+        }
+
+        if (Model.Client.Projects.Count > 0)
+        {
+            using (Html.Wall("Projects"))
+            {
+                for (var i = 0; i < Model.Client.Projects.Count; i++)
+                {
+                    @Html.ProjectInList(new ProjectInListData() { Project = Model.Client.Projects[i], LineAfter = (i != Model.Client.Projects.Count - 1), ReturnClient = Model.Client })
+                }
+            }
+        }
+
+        if (Model.Client.Testimonials.Count > 0)
+        {
+            using (Html.Wall("Testimonials"))
+            {
+                for (var i = 0; i < Model.Client.Testimonials.Count; i++)
+                {        
+                            <div class="post">
+                                
+                                @Html.TestimonialPostContent(Model.Client.Testimonials[i])
+
+                            </div>
+                }
+            }
+        }
+    }
+}

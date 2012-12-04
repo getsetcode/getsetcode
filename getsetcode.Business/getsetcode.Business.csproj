@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42D3ACC7-12C3-488A-BFD9-73BD3B54EEBD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>getsetcode.Business</RootNamespace>
+    <AssemblyName>getsetcode.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Communicators\ISmtpService.cs" />
+    <Compile Include="Communicators\SmtpService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\ClientReader.cs" />
+    <Compile Include="ContextAccessor.cs" />
+    <Compile Include="Readers\ContactFormSubmissionReader.cs" />
+    <Compile Include="Readers\ContractReader.cs" />
+    <Compile Include="Readers\CurriculumVitaeReader.cs" />
+    <Compile Include="Readers\HistoryReader.cs" />
+    <Compile Include="Readers\IClientReader.cs" />
+    <Compile Include="IContextAccessor.cs" />
+    <Compile Include="Readers\IContactFormSubmissionReader.cs" />
+    <Compile Include="Readers\IContractReader.cs" />
+    <Compile Include="Readers\ICurriculumVitaeReader.cs" />
+    <Compile Include="Readers\IHistoryReader.cs" />
+    <Compile Include="Readers\IProjectReader.cs" />
+    <Compile Include="Readers\ISkillReader.cs" />
+    <Compile Include="Readers\ITestimonialReader.cs" />
+    <Compile Include="Readers\ProjectReader.cs" />
+    <Compile Include="Readers\SkillReader.cs" />
+    <Compile Include="Binders\Default.cs" />
+    <Compile Include="Readers\TestimonialReader.cs" />
+    <Compile Include="Writers\ContactFormSubmissionWriter.cs" />
+    <Compile Include="Writers\IContactFormSubmissionWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\getsetcode.Data\getsetcode.Data.csproj">
+      <Project>{AB99421B-D7A8-4746-9F36-411F210CE9F5}</Project>
+      <Name>getsetcode.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Helpers\getsetcode.Helpers.csproj">
+      <Project>{2E73810A-4753-444B-8962-CEE27FA0C2AB}</Project>
+      <Name>getsetcode.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\getsetcode.Model\getsetcode.Model.csproj">
+      <Project>{8D828840-2B2B-474D-A92D-924FB6957F90}</Project>
+      <Name>getsetcode.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

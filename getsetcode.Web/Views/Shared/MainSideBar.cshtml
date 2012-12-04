@@ -1,0 +1,49 @@
+﻿@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Extensions.HelperExtensions
+@model MainSideBarData
+
+                        <div class="window">
+                            @Html.LeftSideLogo(true)
+                            <div class="profile-about">
+                                <p>
+                                    @Html.AboutTom(true) 
+                                </p>
+                                @if (Model.IsHomePage)
+                                {
+                                <p>
+                                    Tom built this website to showcase his skills. The source code will be available on GitHub soon. @*The source code is available on GitHub.*@ @Html.ActionLink("Read more about the website", "About", "Home", null, new { title = "Read more about the website" }).
+                                </p>
+                                }
+                                @if (Model.LatestContract != null)
+                                {
+@*                                <p>
+                                    <strong>@Model.LatestContract.DisplayAsLatestContract.</strong>
+                                </p>*@
+                                }
+                                @if (Model.IsHomePage)
+                                {
+                                <p class="buttons">
+                                    <a data-toggle="modal" href="@Url.Action("Index", "Contact")" class="btn btn-primary btn-large open-contact-form"><i class="icon-comment"></i> Email Tom</a>
+                                    @if (Model.LatestCV != null)
+                                    {
+                                    <a data-toggle="modal" href="#cv-options" class="btn btn-primary btn-large"><i class="icon-book"></i> CV</a>
+                                    }
+                                    @*DISABLED VERSION --> <a class="btn btn-primary btn-large disabled"><i class="icon-comment"></i> Email Tom</a>*@
+                                </p>
+                                }
+                            </div>
+
+                        </div>
+
+                        @if (Model.LatestCV != null)
+                        {
+                        <div id="cv-options" class="modal hide fade cv-modal">
+                            <div class="modal-header">
+                                <a class="close" data-dismiss="modal">×</a>
+                                <h3>Download CV</h3>
+                            </div>
+                            <div class="modal-body">
+                                @Html.Partial("CvDownload", Model.LatestCV)
+                            </div>
+                        </div>
+                        }

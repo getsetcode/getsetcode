@@ -1,0 +1,49 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Contact
+@using getsetcode.Web.Services
+@model RecentContactsData
+@{
+    var ns = NavSection.Contact;
+    ViewBag.Title = TitleBuilder.Get(ns, "Recent");
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FullWidthPanel())
+    {
+        using (Html.Wall("Recent Contacts"))
+        {                
+            <div class="table-wrapper">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    @foreach (var s in Model.Submissions)
+    {
+                        <tr>
+                            <td class="strong">@s.Name</td>
+                            <td><a href="mailto:@s.EmailAddress" title="Email @s.Name">@s.EmailAddress</a></td>
+                            <td>@s.DisplayMessage</td>
+                            <td>@s.DisplayDate</td>
+                        </tr>
+    }
+                    </tbody>
+                </table>
+
+            </div>
+
+        }
+    }
+}

@@ -1,0 +1,56 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Model
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Services
+@model CurriculumVitae
+@{
+    var ns = NavSection.CV;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+                        <div class="focus-summary">
+                            <h2>Curriculum Vitae</h2>
+                            @Html.CvDownload(Model)
+                        </div>
+        using (Html.Window(true))
+        {
+                            @Html.LeftSideLogo(false)
+        }
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        using (Html.Wall())
+        {
+            <h3>Preview</h3>
+            if (Model != null && Model.PdfVersion)
+            {
+            <object data="@Url.Content("~/cv-preview.pdf")" type="application/pdf" width="620" height="500">
+                alt : <a href="@Url.Content("~/cv-preview.pdf")">Link to PDF</a>
+            </object>
+            }
+            else
+            {
+                <div class="post">
+                    @if (Model == null)
+                    {
+                    @:Tom's CV will be available here soon. In the meantime why not review Tom's @Html.ActionLink("skills", "Index", "Skill") and recent @Html.ActionLink("projects", "Index", "Portfolio").
+                    }
+                    else
+                    {
+                    @:Sorry, CV preview is currently unavailable. Use the download links to the left.
+                    }
+                </div>
+            }
+        }
+    }
+}
+

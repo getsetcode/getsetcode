@@ -1,0 +1,16 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Presentation.Presentables
+@model ITestimonialPresentable
+
+                                <div class="post-content">
+                                
+                                    @Html.TestimonialImage(Model.Person, "visual")
+                                    <p class="push-right">
+                                        @Html.Quote(Model.Quote)
+                                    </p>
+                                    <p class="push-right">
+                                        <span class="emphasised">@Model.Person.Name</span>, @Html.DetailLink(Model.Client, tip: TipType.Over)
+                                    </p>
+                                </div>

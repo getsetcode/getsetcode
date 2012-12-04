@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D828840-2B2B-474D-A92D-924FB6957F90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>getsetcode.Model</RootNamespace>
+    <AssemblyName>getsetcode.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agency.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactFormSubmission.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contract.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurriculumVitae.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enum.cs" />
+    <Compile Include="Frequency.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getsetcode.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="HistoryItem.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IHistoryItem.cs" />
+    <Compile Include="Interface\ILink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IPerson.cs" />
+    <Compile Include="Interface\IProject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\ISkill.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\ITestimonial.cs" />
+    <Compile Include="Partial\Client.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IContactFormSubmissionMetadata.cs" />
+    <Compile Include="Partial\ContactFormSubmission.cs" />
+    <Compile Include="Partial\HistoryItem.cs" />
+    <Compile Include="Partial\Person.cs" />
+    <Compile Include="Partial\Project.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Partial\Skill.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Partial\SkillCategory.cs" />
+    <Compile Include="Partial\Testimonial.cs" />
+    <Compile Include="Person.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectImage.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectResponsibility.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectSkill.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rate.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillCategory.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Testimonial.cs">
+      <DependentUpon>getsetcode.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="getsetcode.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>getsetcode.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

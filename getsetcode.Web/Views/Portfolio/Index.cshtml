@@ -1,0 +1,90 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Models.Portfolio
+@using getsetcode.Web.Services
+@model ProjectListData
+@{
+    var ns = NavSection.Portfolio;
+    ViewBag.Title = TitleBuilder.Get(ns);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FullWidthPanel())
+    {
+        using (Html.Wall("Featured Projects"))
+        {               
+            <div class="table-wrapper">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="transparent image">Thumbnail</th>
+                            <th class="fixed-narrow">Name</th>
+                            <th>Description</th>
+                            <th class="fixed-mid">Client</th>
+                            <th class="fixed-mid">Key Skills</th>
+                            <th class="fixed-narrow">When</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+            @foreach (var p in Model.Projects)
+            {
+                        <tr>
+                            <td class="image">
+                            @if (p.ThumbnailImage == null)
+                            {
+                                @:&nbsp;
+                            }
+                            else
+                            {
+                                @Html.DatabaseImage(p.ThumbnailImage, "visual")
+                            }
+                            </td>
+                            <td class="fixed-narrow">@Html.DetailLink(p, "row-link")</td>
+                            <td>@p.BriefSummary</td>
+@*
+                            (Uncomment to use client logo instead of name)
+                            @if (p.Client != null && p.Client.Logo != null && p.Client.Logo.Thumbnail != null)
+                            {
+                            <td><a title="@p.Client.Name" href="@Url.ClientDetail(p.Client)">@Html.DatabaseImage(p.Client.Logo.Thumbnail, "visual")</a></td>
+                            }
+                            else
+                            {
+                            <td>@Html.DetailLink(p.Client)</td>
+                            }
+*@
+                            <td class="fixed-mid">@Html.DetailLink(p.Client)</td>
+                            <td class="fixed-mid">
+                            @if (p.FeaturedSkills.Count == 0)
+                            {
+                                @:&nbsp;
+                            }
+                            else
+                            {
+                                <ul>
+                                @foreach (var s in p.FeaturedSkills)
+                                {
+                                    <li>@Html.DetailLink(s, tip: TipType.Before)</li>
+                                }
+                                </ul>
+                            }
+                            </td>
+                            <td class="fixed-narrow">@p.YearSpan</td>
+                        </tr>
+            }
+                    </tbody>
+                </table>
+
+            </div>
+        }
+    }
+}

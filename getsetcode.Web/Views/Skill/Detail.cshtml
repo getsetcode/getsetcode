@@ -1,0 +1,52 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Model.Enum
+@using getsetcode.Web.Models.Skills
+@using getsetcode.Web.Models.Shared
+@using getsetcode.Web.Services
+@model SkillDetailData
+@{
+    var ns = NavSection.Skills;
+    ViewBag.Title = TitleBuilder.Get(ns, Model.Skill.Name);
+}
+
+@section header {
+    @Html.SiteHeader(ns)
+}
+
+@using (Html.Row())
+{
+    using (Html.FourColumnPanel())
+    {
+                        <div class="focus-summary">
+                            <h2>@Model.Skill.Name</h2>
+                            <p>
+                                @Model.Skill.Summary
+                            </p>
+                        </div>
+    }
+
+    using (Html.EightColumnPanel())
+    {
+        if (Model.ReturnProject != null)
+        {
+            @Html.InfoMessage(string.Format("Return to {0}", Html.DetailLink(Model.ReturnProject)), true)
+        }
+        using (Html.Wall("Projects"))
+        {
+            if (Model.Skill.AllProjects.Count == 0)
+            {
+                <div class="post">
+                    There are not currently any <span class="emphasised">@Model.Skill.Name</span> projects listed. Watch this space!
+                </div>
+            }
+            else
+            {
+                for (var i = 0; i < Model.Skill.AllProjects.Count; i++)
+                {
+                @Html.ProjectInList(new ProjectInListData() { Project = Model.Skill.AllProjects[i], LineAfter = (i != Model.Skill.AllProjects.Count - 1) })
+                }
+            }
+        }
+    }
+}

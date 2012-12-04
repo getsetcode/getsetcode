@@ -1,0 +1,21 @@
+﻿@using getsetcode.Web.Extensions.HelperExtensions
+@using getsetcode.Presentation.MvcHelpers
+@using getsetcode.Presentation.Presentables
+@model IHistoryItemPresentable
+@if (Model.Client != null)
+{
+                            <div class="post">
+                                
+                                <h4>@Model.DisplayDate: Tom added @Html.DetailLink(Model.Client) to his clients</h4>
+
+                                <div class="post-content">
+
+                                    @Html.DatabaseImage(Model.Client.Logo.Thumbnail, "visual")
+                                    <div class="push-right">
+                                        @Html.Raw(Model.Client.BriefDescription)
+                                    </div>
+
+                                </div>
+
+                            </div>
+}
