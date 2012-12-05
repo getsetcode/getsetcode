@@ -11,7 +11,7 @@
                                 @if (Model.IsHomePage)
                                 {
                                 <p>
-                                    Tom built this website to showcase his skills. The source code will be available on GitHub soon. @*The source code is available on GitHub.*@ @Html.ActionLink("Read more about the website", "About", "Home", null, new { title = "Read more about the website" }).
+                                    Tom built @Html.ActionLink("this website", "About", "Home", null, new { title = "Read more about the website" }) to showcase his skills. The full source code is @Html.AvailableOnGitHub().
                                 </p>
                                 }
                                 @if (Model.LatestContract != null)

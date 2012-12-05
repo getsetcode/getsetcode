@@ -384,6 +384,7 @@
     <Content Include="Views\Shared\Blog\BlogPostList.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Web.Live.config" />
+    <Content Include="Views\Shared\AvailableOnGitHub.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\getsetcode.Business\getsetcode.Business.csproj">

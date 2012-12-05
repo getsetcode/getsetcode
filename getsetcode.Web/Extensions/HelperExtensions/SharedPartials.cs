@@ -121,6 +121,11 @@ namespace getsetcode.Web.Extensions.HelperExtensions
             return html.Partial("Modal");
         }
 
+        public static MvcHtmlString AvailableOnGitHub(this HtmlHelper html)
+        {
+            return html.Partial("AvailableOnGitHub");
+        }
+
         public static MvcHtmlString SiteFooter(this HtmlHelper html)
         {
             return html.Partial("SiteFooter");
